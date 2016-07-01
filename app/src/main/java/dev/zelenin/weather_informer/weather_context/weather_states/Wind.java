@@ -8,7 +8,6 @@ public class Wind {
     private double windDirection;
 
     public Wind() {
-
     }
 
     public Wind(double windSpeed, double windDirection) {

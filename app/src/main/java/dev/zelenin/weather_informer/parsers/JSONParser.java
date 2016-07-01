@@ -17,6 +17,7 @@ import dev.zelenin.weather_informer.weather_context.weather_states.Wind;
 /**
  * Created by victor on 01.07.16.
  */
+// TODO delete Rain and Snow classes, use only boolean flags
 public class JSONParser {
     private JSONObject rootObject;
     private JSONArray weatherArray;
@@ -43,20 +44,18 @@ public class JSONParser {
         weather.setCurrentCondition(condition);
         weather.setTemperature(temperature);
         weather.setWind(wind);
+        weather.setClouds(clouds);
 
         switch (condition.getMainDescription()) {
-            case "Clouds":
-                weather.setClouds(clouds);
-                break;
             case "Rain":
 //                weather.setRain(null);
                 weather.setRain(true);
                 break;
             case "Snow":
-                weather.setSnow(parseSnow());
+//                weather.setSnow(parseSnow());
+                weather.setSnow(true);
                 break;
             default:
-                weather.setClouds(clouds);
                 break;
         }
 

@@ -7,7 +7,6 @@ public class Clouds {
     private double cloudiness;
 
     public Clouds() {
-
     }
 
     public Clouds(double cloudiness) {
@@ -21,4 +20,12 @@ public class Clouds {
     public void setCloudiness(double cloudiness) {
         this.cloudiness = cloudiness;
     }
+
+    @Override
+    public String toString() {
+        return "Clouds{" +
+                "cloudiness=" + cloudiness +
+                '}';
+    }
 }
+
