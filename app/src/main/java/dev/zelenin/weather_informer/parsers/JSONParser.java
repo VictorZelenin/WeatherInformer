@@ -49,7 +49,8 @@ public class JSONParser {
                 weather.setClouds(clouds);
                 break;
             case "Rain":
-                weather.setRain(parseRain());
+//                weather.setRain(null);
+                weather.setRain(true);
                 break;
             case "Snow":
                 weather.setSnow(parseSnow());
