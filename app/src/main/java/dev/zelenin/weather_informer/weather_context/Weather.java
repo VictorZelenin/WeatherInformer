@@ -14,7 +14,9 @@ public class Weather {
     private Temperature temperature;
     private Clouds clouds;
     private Wind wind;
+    private boolean isRain;
     private Rain rain;
+    private boolean isSnow;
     private Snow snow;
 
     public Weather() {
@@ -27,8 +29,17 @@ public class Weather {
         this.temperature = temperature;
         this.clouds = clouds;
         this.wind = wind;
-        this.rain = rain;
-        this.snow = snow;
+        if (rain != null) {
+            this.rain = rain;
+            isRain = true;
+        }
+
+        if (snow != null) {
+            this.snow = snow;
+            isSnow = true;
+        }
+
+
     }
 
     public Location getLocation() {
@@ -85,5 +96,36 @@ public class Weather {
 
     public void setSnow(Snow snow) {
         this.snow = snow;
+    }
+
+    public boolean isRain() {
+        return isRain;
+    }
+
+    public void setRain(boolean rain) {
+        isRain = rain;
+    }
+
+    public boolean isSnow() {
+        return isSnow;
+    }
+
+    public void setSnow(boolean snow) {
+        isSnow = snow;
+    }
+
+    @Override
+    public String toString() {
+        return "Weather{" +
+                "location=" + location +
+                ", currentCondition=" + currentCondition +
+                ", temperature=" + temperature +
+                ", clouds=" + clouds +
+                ", wind=" + wind +
+                ", isRain=" + isRain +
+//                ", rain=" + rain +
+                ", isSnow=" + isSnow +
+//                ", snow=" + snow +
+                '}';
     }
 }

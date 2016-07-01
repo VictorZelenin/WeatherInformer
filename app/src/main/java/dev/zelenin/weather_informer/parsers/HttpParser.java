@@ -46,11 +46,11 @@ public class HttpParser {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-//            try {
-//                inputStream.close();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
             connection.disconnect();
         }

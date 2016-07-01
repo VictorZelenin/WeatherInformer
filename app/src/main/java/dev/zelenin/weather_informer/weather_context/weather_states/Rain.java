@@ -5,15 +5,14 @@ package dev.zelenin.weather_informer.weather_context.weather_states;
  */
 public class Rain {
     private double rainVolume;
-    private boolean isRain;
 
-    public Rain(){
+    public Rain() {
 
     }
 
-    public Rain(double rainVolume, boolean isRain) {
+    public Rain(double rainVolume) {
         this.rainVolume = rainVolume;
-        this.isRain = isRain;
+
     }
 
     public double getRainVolume() {
@@ -22,13 +21,5 @@ public class Rain {
 
     public void setRainVolume(double rainVolume) {
         this.rainVolume = rainVolume;
-    }
-
-    public boolean isRain() {
-        return isRain;
-    }
-
-    public void setRain(boolean rain) {
-        isRain = rain;
     }
 }

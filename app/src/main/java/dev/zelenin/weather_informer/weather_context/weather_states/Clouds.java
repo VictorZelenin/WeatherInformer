@@ -6,6 +6,10 @@ package dev.zelenin.weather_informer.weather_context.weather_states;
 public class Clouds {
     private double cloudiness;
 
+    public Clouds() {
+
+    }
+
     public Clouds(double cloudiness) {
         this.cloudiness = cloudiness;
     }

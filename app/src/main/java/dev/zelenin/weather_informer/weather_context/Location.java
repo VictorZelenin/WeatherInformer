@@ -60,4 +60,15 @@ public class Location {
     public void setSunset(long sunset) {
         this.sunset = sunset;
     }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "coordinates=" + coordinates +
+                ", countryName='" + countryName + '\'' +
+                ", cityName='" + cityName + '\'' +
+                ", sunrise=" + sunrise +
+                ", sunset=" + sunset +
+                '}';
+    }
 }

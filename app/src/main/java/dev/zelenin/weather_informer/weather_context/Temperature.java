@@ -40,4 +40,13 @@ public class Temperature {
     public void setMaxTemperature(double maxTemperature) {
         this.maxTemperature = maxTemperature;
     }
+
+    @Override
+    public String toString() {
+        return "Temperature{" +
+                "averageTemperature=" + averageTemperature +
+                ", minTemperature=" + minTemperature +
+                ", maxTemperature=" + maxTemperature +
+                '}';
+    }
 }

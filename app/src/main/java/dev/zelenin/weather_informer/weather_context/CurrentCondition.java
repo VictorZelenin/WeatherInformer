@@ -72,4 +72,15 @@ public class CurrentCondition {
         this.pressure = pressure;
     }
 
+    @Override
+    public String toString() {
+        return "CurrentCondition{" +
+                "weatherId=" + weatherId +
+                ", mainDescription='" + mainDescription + '\'' +
+                ", additionalDescription='" + additionalDescription + '\'' +
+//                ", imageCode='" + imageCode + '\'' +
+                ", humidity=" + humidity +
+                ", pressure=" + pressure +
+                '}';
+    }
 }

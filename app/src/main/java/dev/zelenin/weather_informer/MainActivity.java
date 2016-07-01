@@ -7,6 +7,7 @@ import android.widget.TextView;
 import java.util.concurrent.ExecutionException;
 
 import dev.zelenin.weather_informer.parsers.HttpParser;
+import dev.zelenin.weather_informer.weather_context.Weather;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,10 +18,13 @@ public class MainActivity extends AppCompatActivity {
         TextView view = (TextView) findViewById(R.id.textView);
 
         JSONLoaderTask task = new JSONLoaderTask();
-        task.execute();
+        task.execute("London,uk");
 
         try {
-            view.setText(task.get());
+            Weather weather = task.get();
+            System.out.println(weather);
+            view.setText(weather.getLocation().getCityName() + "  " + weather.getTemperature());
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
