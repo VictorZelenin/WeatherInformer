@@ -13,10 +13,14 @@ public class JSONLoaderTask extends AsyncTask<String, Void, Weather> {
 
     @Override
     protected Weather doInBackground(String... params) {
+        HttpParser httpParser = new HttpParser();
 
-        String data = new HttpParser().getWeatherData(params[0]);
+        String data = httpParser.getWeatherData(params[0]);
+        Weather weather = new JSONParser(data).getWeather();
 
-        return new JSONParser(data).getWeather();
+//        weather.setImage(httpParser.getImage(weather.getCurrentCondition().getImageCode()));
+
+        return weather;
     }
 
 }

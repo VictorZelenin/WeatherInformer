@@ -1,5 +1,7 @@
 package dev.zelenin.weather_informer.weather_context;
 
+import java.io.Serializable;
+
 import dev.zelenin.weather_informer.weather_context.weather_states.Clouds;
 import dev.zelenin.weather_informer.weather_context.weather_states.Rain;
 import dev.zelenin.weather_informer.weather_context.weather_states.Snow;
@@ -8,7 +10,7 @@ import dev.zelenin.weather_informer.weather_context.weather_states.Wind;
 /**
  * Created by victor on 01.07.16.
  */
-public class Weather {
+public class Weather implements Serializable {
     private Location location;
     private CurrentCondition currentCondition;
     private Temperature temperature;
@@ -18,6 +20,8 @@ public class Weather {
     private Rain rain;
     private boolean isSnow;
     private Snow snow;
+
+    private byte[] image;
 
     public Weather() {
     }
@@ -112,6 +116,14 @@ public class Weather {
 
     public void setSnow(boolean snow) {
         isSnow = snow;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
     @Override

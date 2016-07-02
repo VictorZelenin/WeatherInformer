@@ -64,16 +64,19 @@ public class HttpParser {
 
         try {
             connection = (HttpURLConnection) new URL(IMG_URL + code + ICON_EXTENSION).openConnection();
+            System.out.println(IMG_URL + code + ICON_EXTENSION);
             connection.setRequestMethod("GET");
             connection.setDoInput(true);
             connection.setDoOutput(true);
             connection.connect();
 
+            System.out.println(connection);
+            // TODO connection.getIS() throws NullPointerException
             inputStream = connection.getInputStream();
             byte[] buffer = new byte[1024];
             ByteArrayOutputStream byteArrayInputStream = new ByteArrayOutputStream();
 
-            while (inputStream.read() != -1) {
+            while (inputStream.read(buffer) != -1) {
                 byteArrayInputStream.write(buffer);
             }
 

@@ -1,4 +1,8 @@
 <resources>
-    <string name="app_name">Weather_informer</string>
-    <string name="go">GO!!!</string>
+    <string name="app_name">Weather Informer</string>
+    <string name="go">GO</string>
+    <string name="city_apos_s_name">city\'s name</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
