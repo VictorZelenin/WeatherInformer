@@ -1,5 +1,8 @@
 package dev.zelenin.weather_informer.weather_context;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 
 import dev.zelenin.weather_informer.weather_context.weather_states.Clouds;
@@ -10,7 +13,8 @@ import dev.zelenin.weather_informer.weather_context.weather_states.Wind;
 /**
  * Created by victor on 01.07.16.
  */
-public class Weather implements Serializable {
+// TODO implement Parcelable!!!
+public class Weather implements Parcelable {
     private Location location;
     private CurrentCondition currentCondition;
     private Temperature temperature;
@@ -42,9 +46,32 @@ public class Weather implements Serializable {
             this.snow = snow;
             isSnow = true;
         }
-
-
     }
+
+    public Weather(Parcel in) {
+        location = in.readParcelable(Location.class.getClassLoader());
+        currentCondition = in.readParcelable(CurrentCondition.class.getClassLoader());
+        temperature = in.readParcelable(Temperature.class.getClassLoader());
+        clouds = in.readParcelable(Clouds.class.getClassLoader());
+        wind = in.readParcelable(Wind.class.getClassLoader());
+        isRain = in.readByte() != 0;
+        rain = in.readParcelable(Rain.class.getClassLoader());
+        isSnow = in.readByte() != 0;
+        snow = in.readParcelable(Snow.class.getClassLoader());
+        image = in.createByteArray();
+    }
+
+    public static final Creator<Weather> CREATOR = new Creator<Weather>() {
+        @Override
+        public Weather createFromParcel(Parcel in) {
+            return new Weather(in);
+        }
+
+        @Override
+        public Weather[] newArray(int size) {
+            return new Weather[size];
+        }
+    };
 
     public Location getLocation() {
         return location;
@@ -127,6 +154,25 @@ public class Weather implements Serializable {
     }
 
     @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int flags) {
+        parcel.writeParcelable(location, flags);
+        parcel.writeParcelable(currentCondition, flags);
+        parcel.writeParcelable(temperature, flags);
+        parcel.writeParcelable(clouds, flags);
+        parcel.writeParcelable(wind, flags);
+        parcel.writeByte((byte) (isRain ? 1 : 0));
+        parcel.writeParcelable(rain, flags);
+        parcel.writeByte((byte) (isSnow ? 1 : 0));
+        parcel.writeParcelable(snow, flags);
+        parcel.writeByteArray(image);
+    }
+
+    @Override
     public String toString() {
         return "Weather{" +
                 "location=" + location +
@@ -140,4 +186,5 @@ public class Weather implements Serializable {
 //                ", snow=" + snow +
                 '}';
     }
+
 }

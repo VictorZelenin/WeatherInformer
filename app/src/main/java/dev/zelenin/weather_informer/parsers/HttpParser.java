@@ -67,11 +67,10 @@ public class HttpParser {
             System.out.println(IMG_URL + code + ICON_EXTENSION);
             connection.setRequestMethod("GET");
             connection.setDoInput(true);
-            connection.setDoOutput(true);
+//            connection.setDoOutput(true);
             connection.connect();
 
             System.out.println(connection);
-            // TODO connection.getIS() throws NullPointerException
             inputStream = connection.getInputStream();
             byte[] buffer = new byte[1024];
             ByteArrayOutputStream byteArrayInputStream = new ByteArrayOutputStream();
@@ -86,7 +85,9 @@ public class HttpParser {
             e.printStackTrace();
         } finally {
             try {
+                assert inputStream != null;
                 inputStream.close();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }

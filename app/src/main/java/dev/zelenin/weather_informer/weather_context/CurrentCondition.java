@@ -1,9 +1,12 @@
 package dev.zelenin.weather_informer.weather_context;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by victor on 01.07.16.
  */
-public class CurrentCondition {
+public class CurrentCondition implements Parcelable {
     private int weatherId;
     private String mainDescription;
     private String additionalDescription;
@@ -23,6 +26,27 @@ public class CurrentCondition {
         this.humidity = humidity;
         this.pressure = pressure;
     }
+
+    protected CurrentCondition(Parcel in) {
+        weatherId = in.readInt();
+        mainDescription = in.readString();
+        additionalDescription = in.readString();
+        imageCode = in.readString();
+        humidity = in.readInt();
+        pressure = in.readDouble();
+    }
+
+    public static final Creator<CurrentCondition> CREATOR = new Creator<CurrentCondition>() {
+        @Override
+        public CurrentCondition createFromParcel(Parcel in) {
+            return new CurrentCondition(in);
+        }
+
+        @Override
+        public CurrentCondition[] newArray(int size) {
+            return new CurrentCondition[size];
+        }
+    };
 
     public int getWeatherId() {
         return weatherId;
@@ -82,5 +106,20 @@ public class CurrentCondition {
                 ", humidity=" + humidity +
                 ", pressure=" + pressure +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(weatherId);
+        parcel.writeString(mainDescription);
+        parcel.writeString(additionalDescription);
+        parcel.writeString(imageCode);
+        parcel.writeInt(humidity);
+        parcel.writeDouble(pressure);
     }
 }

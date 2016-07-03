@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.concurrent.ExecutionException;
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 Weather weather = task.get();
                 Intent intent = new Intent(this, AdditionalActivity.class);
                 // TODO send weather obj to another activity
-//                intent.putExtra(Weather.class.getCanonicalName(), weather);
+                intent.putExtra("weather", weather);
                 startActivity(intent);
 
             } catch (InterruptedException | ExecutionException e) {

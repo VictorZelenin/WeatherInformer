@@ -6,8 +6,7 @@
     <TextView
         android:layout_width="150dp"
         android:layout_height="40dp"
-        android:text=""
-        android:id="@+id/textView"
+        android:id="@+id/city_name"
         android:layout_marginLeft="45dp"
         android:layout_marginStart="45dp"
         android:layout_marginTop="50dp"
@@ -20,66 +19,64 @@
         android:layout_width="60dp"
         android:layout_height="50dp"
         android:text="Info"
-        android:id="@+id/button2"
-        android:layout_alignTop="@+id/textView"
+        android:id="@+id/info_button"
+        android:layout_alignTop="@+id/city_name"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="38dp"
         android:layout_marginEnd="38dp"
-        android:layout_alignBottom="@+id/textView" />
+        android:layout_alignBottom="@+id/city_name" />
 
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:id="@+id/imageView"
+        android:id="@+id/weather_icon"
         android:layout_marginTop="38dp"
-        android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
+        android:layout_below="@+id/city_name"
+        android:layout_alignLeft="@+id/city_name"
+        android:layout_alignStart="@+id/city_name" />
 
     <TextView
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:text="New Text"
-        android:id="@+id/textView2"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView" />
+        android:id="@+id/avg_temp"
+        android:layout_alignTop="@+id/weather_icon"
+        android:layout_toRightOf="@+id/weather_icon"
+        android:layout_toEndOf="@+id/weather_icon" />
+
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:id="@+id/min_max_temp"
+        android:layout_below="@+id/weather_icon"
+        android:layout_alignRight="@+id/city_name"
+        android:layout_alignEnd="@+id/city_name" />
+
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:id="@+id/description"
+        android:layout_below="@+id/min_max_temp"
+        android:layout_alignRight="@+id/city_name"
+        android:layout_alignEnd="@+id/city_name" />
 
     <TextView
         android:layout_width="80dp"
         android:layout_height="30dp"
         android:text="New Text"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/imageView"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
+        android:id="@+id/humidity"
+        android:layout_below="@+id/description"
+        android:layout_alignLeft="@+id/description"
+        android:layout_alignStart="@+id/description" />
 
     <TextView
         android:layout_width="80dp"
         android:layout_height="30dp"
         android:text="New Text"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/textView3"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
-
-    <TextView
-        android:layout_width="80dp"
-        android:layout_height="30dp"
-        android:text="New Text"
-        android:id="@+id/textView5"
-        android:layout_below="@+id/textView4"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4" />
-
-    <TextView
-        android:layout_width="80dp"
-        android:layout_height="30dp"
-        android:text="New Text"
-        android:id="@+id/textView6"
-        android:layout_below="@+id/textView5"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
+        android:id="@+id/pressure"
+        android:layout_below="@+id/humidity"
+        android:layout_alignRight="@+id/city_name"
+        android:layout_alignEnd="@+id/city_name" />
 
 </RelativeLayout>
