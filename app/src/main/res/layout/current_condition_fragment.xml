@@ -49,9 +49,9 @@
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:id="@+id/min_max_temp"
-        android:layout_below="@+id/weather_icon"
-        android:layout_alignRight="@+id/city_name"
-        android:layout_alignEnd="@+id/city_name" />
+        android:layout_below="@+id/avg_temp"
+        android:layout_toRightOf="@+id/weather_icon"
+        android:layout_toEndOf="@+id/weather_icon" />
 
     <TextView
         android:layout_width="200dp"
@@ -68,7 +68,9 @@
         android:id="@+id/humidity"
         android:layout_below="@+id/description"
         android:layout_alignLeft="@+id/description"
-        android:layout_alignStart="@+id/description" />
+        android:layout_alignStart="@+id/description"
+        android:layout_alignRight="@+id/min_max_temp"
+        android:layout_alignEnd="@+id/min_max_temp" />
 
     <TextView
         android:layout_width="80dp"
@@ -76,8 +78,10 @@
         android:text="New Text"
         android:id="@+id/pressure"
         android:layout_below="@+id/humidity"
-        android:layout_alignRight="@+id/city_name"
-        android:layout_alignEnd="@+id/city_name"
-        android:layout_marginTop="39dp" />
+        android:layout_alignLeft="@+id/min_max_temp"
+        android:layout_alignStart="@+id/min_max_temp"
+        android:layout_marginTop="10dp"
+        android:layout_alignRight="@+id/min_max_temp"
+        android:layout_alignEnd="@+id/min_max_temp" />
 
 </RelativeLayout>

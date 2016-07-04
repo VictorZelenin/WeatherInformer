@@ -1,5 +1,6 @@
 package dev.zelenin.weather_informer.weather_context;
 
+import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -26,6 +27,7 @@ public class Weather implements Parcelable {
     private Snow snow;
 
     private byte[] image;
+    private Bitmap bitmap;
 
     public Weather() {
     }
@@ -170,6 +172,14 @@ public class Weather implements Parcelable {
         parcel.writeByte((byte) (isSnow ? 1 : 0));
         parcel.writeParcelable(snow, flags);
         parcel.writeByteArray(image);
+    }
+
+    public Bitmap getBitmap() {
+        return bitmap;
+    }
+
+    public void setBitmap(Bitmap bitmap) {
+        this.bitmap = bitmap;
     }
 
     @Override
