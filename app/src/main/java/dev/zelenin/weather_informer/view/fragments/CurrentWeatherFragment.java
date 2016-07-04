@@ -1,13 +1,20 @@
 package dev.zelenin.weather_informer.view.fragments;
 
 import android.app.Fragment;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Arrays;
 
 import dev.zelenin.weather_informer.R;
 import dev.zelenin.weather_informer.weather_context.Weather;
@@ -28,6 +35,7 @@ public class CurrentWeatherFragment extends Fragment {
         TextView cityName = (TextView) getView().findViewById(R.id.city_name);
         TextView averageTemperature = (TextView) getView().findViewById(R.id.avg_temp);
         TextView minMaxTemperature = (TextView) getView().findViewById(R.id.min_max_temp);
+        TextView description = (TextView) getView().findViewById(R.id.description);
         TextView humidity = (TextView) getView().findViewById(R.id.humidity);
         TextView pressure = (TextView) getView().findViewById(R.id.pressure);
 
@@ -37,12 +45,16 @@ public class CurrentWeatherFragment extends Fragment {
 
         cityName.setText(weather.getLocation().getCityName());
         averageTemperature.setText(validateTemperature(weather.getTemperature().getAverageTemperature()));
-        minMaxTemperature.setText("min: " + validateTemperature(weather.getTemperature().getMinTemperature())
-                + "max: " + validateTemperature(weather.getTemperature().getMaxTemperature()));
-        humidity.setText("humidity " + weather.getCurrentCondition().getHumidity());
-        pressure.setText("pressure " + weather.getCurrentCondition().getPressure());
-        weatherIcon.setImageBitmap(BitmapFactory.decodeByteArray(weather.getImage(), 0,
-                weather.getImage().length));
+        description.setText(weather.getCurrentCondition().getAdditionalDescription());
+        minMaxTemperature.setText(validateTemperature(weather.getTemperature().getMinTemperature())
+                + "  " + validateTemperature(weather.getTemperature().getMaxTemperature()));
+        humidity.setText("humidity: " + weather.getCurrentCondition().getHumidity());
+        pressure.setText("pressure: " + weather.getCurrentCondition().getPressure());
+
+        // TODO returns null
+        Bitmap bitmap = BitmapFactory.decodeByteArray(weather.getImage(), 0, weather.getImage().length);
+        System.out.println(bitmap);
+        weatherIcon.setImageBitmap(bitmap);
     }
 
     private String validateTemperature(double temperature) {
